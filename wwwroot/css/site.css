@@ -85,7 +85,8 @@ h5,
 h6 {
     /*color: var(--heading-color);*/
     /* font-family: var(--heading-font);*/
-    font-family: 'Chewy', cursive;
+    /* font-family: 'Chewy', cursive;*/
+    font-family: 'Baloo 2', sans-serif;
     color: #ff6f61;
 }
 
