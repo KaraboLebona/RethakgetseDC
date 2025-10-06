@@ -43,7 +43,7 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
-app.UseStaticFiles();
+
 // Set default route to Admin Login page
 app.MapControllerRoute(
     name: "default",
