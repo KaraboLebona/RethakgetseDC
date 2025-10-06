@@ -1,0 +1,30 @@
+﻿# Ignore build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.swp
+*.tmp
+*.log
+
+# IDE folders
+.vs/
+.idea/
+.vscode/
+
+# OS files
+*.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile*
+
+# Other
+node_modules/
