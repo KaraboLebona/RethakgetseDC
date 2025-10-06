@@ -1,0 +1,22 @@
+﻿@model DayCareProject.Models.Kid
+@{
+    ViewBag.Title = "Add Kid";
+}
+
+<h1>Add New Kid</h1>
+
+<form asp-action="AddKid" method="post">
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" type="number" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ParentName"></label>
+        <input asp-for="ParentName" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Kid</button>
+</form>

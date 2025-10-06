@@ -1,0 +1,116 @@
+﻿@model DayCareProject.Models.DashboardViewModel
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Welcome, @Context.Session.GetString("AdminUsername")!</h2>
+
+    <div class="text-center mb-3">
+        <a class="btn btn-danger" asp-controller="Admin" asp-action="Logout">Logout</a>
+    </div>
+
+    <div class="row text-center mb-4">
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h4>Manage Applications</h4>
+                <p>View and approve parent applications</p>
+                <a class="btn btn-primary" asp-controller="Applications" asp-action="Index">Go</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h4>Manage Events</h4>
+                <p>Add and update upcoming events</p>
+                <a asp-action="UploadEvent" class="btn btn-success mb-3">Upload New Event</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h4>Manage Facilities</h4>
+                <p>Upload pictures and update facilities info</p>
+                <a class="btn btn-info" asp-controller="Facilities" asp-action="Index">Go</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= Applications Section ================= -->
+    <h3 class="mb-3">Recent Applications</h3>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Child Surname</th>
+                <th>Child Full Name</th>
+                <th>Date of Birth</th>
+                <th>Home Language</th>
+                <th>Residential Address</th>
+                <th>Parent First Name</th>
+                <th>Parent Surname</th>
+                <th>Occupation</th>
+                <th>Work Tel</th>
+                <th>Cell</th>
+                <th>Kin Name</th>
+                <th>Kin Surname</th>
+                <th>Kin Relation</th>
+                <th>Date Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Applications != null && Model.Applications.Any())
+            {
+                @foreach (var app in Model.Applications)
+                {
+                    <tr>
+                        <td>@app.ChildSurname</td>
+                        <td>@app.ChildFullName</td>
+                        <td>@app.DateOfBirth.ToShortDateString()</td>
+                        <td>@app.HomeLanguage</td>
+                        <td>@app.ResidentialAddress</td>
+                        <td>@app.ParentFullName</td>
+                        <td>@app.ParentSurname</td>
+                        <td>@app.Occupation</td>
+                        <td>@app.WorkTel</td>
+                        <td>@app.Cell</td>
+                        <td>@app.KinName</td>
+                        <td>@app.KinSurname</td>
+                        <td>@app.KinRelation</td>
+                        <td>@app.DateSubmitted.ToString("yyyy-MM-dd HH:mm")</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="14" class="text-center">No applications yet.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <!-- ================= Events Section ================= -->
+    <h3 class="mb-3">Event Photos</h3>
+    <div class="row">
+        @if (Model.Events != null && Model.Events.Any())
+        {
+            @foreach (var evt in Model.Events)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="@evt.PhotoPath" class="card-img-top" alt="Event Photo" style="height:200px; object-fit:cover;" />
+                        <div class="card-body text-center">
+                            <small class="text-muted">Uploaded: @evt.DateCreated.ToString("yyyy-MM-dd HH:mm")</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="text-center">No event photos uploaded yet.</p>
+        }
+    </div>
+</div>

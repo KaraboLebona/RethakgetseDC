@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DayCareProject.Models.Event>
+@{
+    ViewBag.Title = "Manage Events";
+}
+
+<h1>Event Photos</h1>
+
+<a class="btn btn-primary mb-3" asp-action="UploadEvent">Upload New Photo</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Date Uploaded</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evt in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(evt.PhotoPath))
+                    {
+                        <img src="@evt.PhotoPath" alt="Event Photo" style="height:100px;" />
+                    }
+                </td>
+                <td>@evt.DateCreated.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Upload Event Photo";
+}
+
+<h2 class="mb-4">Upload Event Photo</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form asp-action="UploadEvent" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Select Image</label>
+        <input class="form-control" type="file" name="image" accept="image/*" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Upload Photo</button>
+    <a asp-action="Dashboard" class="btn btn-secondary ms-2">Back to Dashboard</a>
+</form>

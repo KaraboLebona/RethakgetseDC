@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DayCareProject.Models.Kid>
+@{
+    ViewBag.Title = "Manage Kids";
+}
+
+<h1>Registered Kids</h1>
+
+<a class="btn btn-success mb-3" asp-action="AddKid">Add New Kid</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Parent</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kid in Model)
+        {
+            <tr>
+                <td>@kid.Name</td>
+                <td>@kid.Age</td>
+                <td>@kid.ParentName</td>
+                <td>
+                    <a asp-action="DeleteKid" asp-route-id="@kid.Id" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,1430 @@
+﻿@{
+    ViewBag.Title = "About - Rethakgetse Day Care";
+}
+
+@* <div class="container mt-5">
+    <div class="d-flex align-items-center mb-4">
+        <img src="~/images/logo.png" alt="Logo" style="height:60px;" class="me-3" />
+        <h1 class="fw-bold">Rethakgetse Day Care</h1>
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn btn-primary me-2" asp-controller="Admin" asp-action="Login">Admin Login</a>
+        <a class="btn btn-success me-2" asp-controller="Parent" asp-action="Apply">Apply for Your Child</a>
+        <a class="btn btn-info" asp-controller="Home" asp-action="Facilities">View Facilities</a>
+    </div>
+</div> *@
+
+<!-- Image Slider Section -->
+@* <div class="container mt-5">
+    <div id="slider" class="slider" style="height:300px;width:500px;" >
+        <div class="slides">
+            <img src="~/images/pic1.jpg" alt="Day Care Image 1" />
+            <img src="~/images/pic2.jpg" alt="Day Care Image 2" />
+            <img src="~/images/pic3.jpg" alt="Day Care Image 3" />
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+
+        <!-- Dot Indicators -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+
+       
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const slides = document.querySelector(".slides");
+        const images = document.querySelectorAll(".slides img");
+        const dots = document.querySelectorAll(".dot");
+        const prev = document.querySelector(".prev");
+        const next = document.querySelector(".next");
+
+        let index = 0;
+        let timer = setInterval(autoSlide, 3000);
+
+        function showSlide(i) {
+            if (i >= images.length) index = 0;
+            if (i < 0) index = images.length - 1;
+
+            slides.style.transform = `translateX(${-index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        function autoSlide() {
+            index++;
+            showSlide(index);
+        }
+
+        prev.addEventListener("click", () => {
+            index--;
+            showSlide(index);
+            resetTimer();
+        });
+
+        next.addEventListener("click", () => {
+            index++;
+            showSlide(index);
+            resetTimer();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                index = i;
+                showSlide(index);
+                resetTimer();
+            });
+        });
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(autoSlide, 3000);
+        }
+    </script>
+}
+
+<style>
+    .slider {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        height: 400px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+        display: flex;
+        width: 300%;
+        transition: transform 1s ease-in-out;
+    }
+
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+    /* Arrows */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 30px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background: rgba(0,0,0,0.3);
+        transition: 0.3s;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.6);
+        }
+
+    /* Dots */
+    .dots {
+        text-align: center;
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+</style>
+ *@
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - Butterfly Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    @* <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> *@
+    @* my css my css my css my css *@
+    @* <link href="~/css/bootstrap.min.css" rel="stylesheet" /> *@
+    <link href="~/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/css/aos.css" rel="stylesheet" />
+    <link href="~/css/glightbox.min.css" rel="stylesheet" />
+    <link href="~/css/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Butterfly
+    * Template URL: https://bootstrapmade.com/butterfly-free-bootstrap-theme/
+    * Updated: Aug 07 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                @* <img src="assets/img/logo.png" alt=""> *@
+                @* <img src="c:\users\siphe\downloads\daycareproject\pictures\photoroom_20250929_131938.png" /> *@
+                <img src="~/newfolder/photoroom_20250929_131938.png" />
+                <!-- Uncomment the line below if you also wish to use text logo -->
+                <!-- <h1 class="sitename">Butterfly</h1>  -->
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Subjects</a></li>
+                    <li><a href="#portfolio">Events</a></li>
+                   @*  <li><a href="#team">Team</a></li> *@
+                   
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section light-background">
+
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-md-start" data-aos="fade-up">
+                        <h2>
+                            BUILDING BRIGHT FUTURES, ONE CHILD AT A TIME
+                        </h2>
+                        <p>Welcome to our website do more by doing less</p>
+                        <div class="d-flex mt-4 justify-content-center justify-content-md-start">
+                            <a class="btn btn-success me-2" asp-controller="Parent" asp-action="Apply">Apply for Your Child</a>
+                            <a class="btn btn-primary me-2" asp-controller="Admin" asp-action="Login">Admin Login</a>
+                            <a class="btn btn-primary" asp-controller="Home" asp-action="Facilities">View Facilities</a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+                     @*    <img src="assets/img/hero-img.png" class="img-fluid animated" alt=""> *@
+                        <img src="~/newfolder/photoroom_20250929_131938.png" class="img-fluid animated" alt="" />
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /Hero Section -->
+        <!-- About Section -->
+        <section id="about" class="about section">
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6 position-relative" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                    </div>
+
+                    <div class="col-lg-6 ps-lg-4 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <h3>About Us</h3>
+                        <p>
+                            <b> Rethakgetse Day Care</b> was founded in 2009 by <b>Mrs. Martha Malakapatlo</b> with a vision to provide quality early childhood care and education to the children of Soshanguve. What began as a small initiative has now grown into a trusted institution serving hundreds of families.
+                        </p>
+                        <ul>
+                            <li>
+                                <i>Our Journey</i>
+                               
+                            </li>
+                            <li>
+                                <i></i>
+                                <div>
+                                    <h5>2009 | 2010 | 2011</h5>
+                                    <p>Established in Block P, Soshanguve (where Block P Park is now located).</p>
+                                    <p>Relocated to the backyard of Mrs. Malakapatlo’s home.</p>
+                                    <p>Moved to our permanent home at Father Smangaliso (Stout School).</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i></i>
+                               
+                            </li>
+                        </ul>
+
+                        <p>
+                            <h5>
+                                Our Growth
+                            </h5>
+
+                            We started with just 60 children, but through dedication and the support of the community, Rethakgetse Day Care has grown to care for more than 350 children today.
+                        </p>
+                        <p>
+
+                            <h5>Our Team</h5>
+                            We are proud to employ over 25 qualified practitioners and assistants, each committed to nurturing, educating, and supporting every child in our care.
+                        </p>
+                        <p>
+                            <h5>Our Future</h5>
+                            As we look ahead, our goal is to open more branches by 2026. This will allow us to reach even more families, create new job opportunities, and continue building brighter futures for young children.
+                        </p>
+                       
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- /About Section -->
+        <!-- Stats Section -->
+        <section id="stats" class="stats section light-background">
+
+         
+            <img src="~/images/vector childers playground park on a white background.jpeg" alt="" data-aos="fade-in" />
+
+            <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                         
+                            <span data-purecounter-start="0" data-purecounter-end="350" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Number of Children</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Teachers</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Assistants</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="99" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Pass rate (%)</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                   
+
+                </div>
+
+            </div>
+
+        </section><!-- /Stats Section -->
+       @*  <!-- Clients Section -->
+        <section id="clients" class="clients section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row g-0 clients-wrap">
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-3 col-md-4 client-logo">
+                        <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Clients Section --> *@
+        <!-- Services Section -->
+        <section id="services" class="services section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Subjects</h2>
+                <p>A list of the subjects offered at our day care</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item  position-relative">
+                            <div class="icon">
+                                <i class="bi-calculator" style="color: limegreen;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Math</h3>
+                            </a>
+                            <p> <b>Early Number Skills:</b> We introduce children to counting, recognizing numbers, and simple patterns.</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-book" style="color: #fd7e14;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Reading</h3>
+                                <p>English & Afrkaans as an additional language</p>
+                            </a>
+                            <p>
+                                <b> Letter Recognition:</b> Children are introduced to the alphabet, letter sounds, and sight words.
+                            </p>
+                                <p>
+
+                                <b>Story Time:</b> Daily story sessions build listening skills, imagination, and vocabulary.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-brush" style="color: #20c997;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Arts</h3>
+                            </a>
+                            <p>
+                                <b>Creativity & Expression:</b> Children use drawing, painting, and crafts to express their thoughts and feelings.
+                            <p />
+                                <p>
+
+                                <b>Fine Motor Skills:</b> Cutting, coloring, and shaping activities strengthen hand–eye coordination.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-book" style="color: #df1529;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Drama</h3>
+                            </a>
+                            <p> <b>Imagination & Creativity:</b> Children act out stories, role-play, and explore characters in fun ways.</p>
+                            <a href="service-details.html" class="stretched-link"></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-globe" style="color: #6610f2;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Computer fundamentals</h3>
+                            </a>
+                            <p>
+                                <b>Computer fundamentals:</b> Computer fundamentals at our day care focus on building early familiarity with technology. Children are introduced to basic computer use through fun, interactive activities — such as recognizing letters and numbers on a keyboard, using age-appropriate educational games, and developing hand-eye coordination with a mouse or touchscreen.
+                            </p>
+
+                           
+                            <a href="service-details.html" class="stretched-link"></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-heart" style="color: #f3268c;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Physical Education</h3>
+                            </a>
+                            <p>
+                                <b>Movement & Play:</b> Activities like running, jumping, dancing, and ball games keep kids active and engaged. 
+
+                                    
+                                
+
+                                <b>Swimming:</b> Helps children build confidence in the water while improving coordination, strength, and safety skills — all in a fun and supervised environment.
+                            </p>
+                            <a href="service-details.html" class="stretched-link"></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Services Section 2222222222222222222222-->
+        <!-- Services Section -->
+        <section id="services" class="services section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Facilities</h2>
+                <p>Our Facilities</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item  position-relative">
+                            <div class="icon">
+                                <i class="bi-camera" style="color: limegreen;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>CCTVs</h3>
+                            </a>
+                            <p>Our class room and other parts of the premises are fitted with cctv cameras.This is one of the many ways we keep our security tight</p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-fan" style="color: #fd7e14;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Air Conditioners</h3>
+                                <p>All our classrooms are equipped with air conditioning to ensure children learn and play in a comfortable environment, no matter the weather.</p>
+                            </a>
+                           
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-shield-check" style="color: #20c997;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Security personnel</h3>
+                            </a>
+                           
+                            <p>
+
+                                We have trained security at the gate to ensure every child’s safety and controlled access at all times.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-bus-front" style="color: #df1529;"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Transport</h3>
+                            </a>
+                            <p> Safe and reliable transport ensures children arrive and return home comfortably under trusted supervision.</p>
+                           
+                        </div>
+                    </div><!-- End Service Item -->
+
+                   
+
+                </div>
+
+            </div>
+
+        </section><!-- /Services Section -->
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Past Events</h2>
+                <p>Our yearly events</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-app">Heritage Day</li>
+                        <li data-filter=".filter-product">Career Day</li>
+                        <li data-filter=".filter-branding">Spring Day</li>
+                        <li data-filter=".filter-books">First Day</li>
+                    </ul><!-- End Portfolio Filters -->
+
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0779.jpg" class="img-fluid" alt="">
+                               @*  <img src="~/images/img-20250929-wa0779.jpg" /> *@
+                                <div class="portfolio-info">
+                                    <h4>Career Day</h4>
+                                   
+                                    <a href="~/images/img-20250929-wa0779.jpg" title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                 
+                                  @*   <img src="~/images/img-20250929-wa0757.jpg" /> *@
+                                  @*   <img src="~/images/img-20250929-wa0603.jpg" /> *@
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0789.jpg" class="img-fluid" alt="">
+                               
+                                <div class="portfolio-info">
+                                    <h4>Career Day</h4>
+                                   
+                                    <a href="~/images/img-20250929-wa0789.jpg" title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    @* <img src="~/images/img-20250929-wa0789.jpg" /> *@
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0697.jpg" class="img-fluid" alt="">
+                            
+
+                                <div class="portfolio-info">
+                                    <h4>Heritage Day</h4>
+
+                                    <a href="~/images/img-20250929-wa0697.jpg" title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    @* <img src="~/images/img-20250929-wa0789.jpg" /> *@
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0766.jpg" class="img-fluid" alt="">
+                              
+                                <div class="portfolio-info">
+                                    <h4>Career Day</h4>
+                                   
+                                    <a href="~/images/img-20250929-wa0766.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Spring day</h4>
+                                   
+                                    <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                  
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0742.jpg" class="img-fluid" alt="">
+                              
+                                <div class="portfolio-info">
+                                    <h4>Spring day</h4>
+
+                                    <a href="~/images/img-20250929-wa0742.jpg" title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0778.jpg" class="img-fluid" alt="">
+                              
+                                <div class="portfolio-info">
+                                    <h4></h4>
+                                  
+                                    <a href="~/images/img-20250929-wa0778.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                               
+                                <img src="~/images/img-20250929-wa0726.jpg" class="img-fluid" alt="" />
+                                <div class="portfolio-info">
+                                    <h4></h4>
+                                   
+                                    <a href="~/images/img-20250929-wa0726.jpg" title="" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                            <div class="portfolio-content h-100">
+                                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Books 2</h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="portfolio-content h-100">
+                                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>App 3</h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0794.jpg" class="img-fluid" alt="">
+                              
+                                <div class="portfolio-info">
+                                    <h4>Product 3</h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    <a href="~/images/img-20250929-wa0794.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                               
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <div class="portfolio-content h-100">
+                                <img src="~/images/img-20250929-wa0742.jpg" class="img-fluid" alt="">
+                               
+                                <div class="portfolio-info">
+                                    <h4>Branding 3</h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    <a href="~/images/img-20250929-wa0742.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                            <div class="portfolio-content h-100">
+                                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>Books 3</h4>
+                                  
+                                    <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                   
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+                    </div><!-- End Portfolio Container -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Portfolio Section -->
+        <!-- Testimonials Section -->
+        <h5>Reviews/FeedBack</h5>
+        <section id="testimonials" class="testimonials section dark-background">
+         
+            <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": "auto",
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                          }
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                               
+                                <h3>Katleho Maleka</h3>
+                                <h4>Parent</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>“I’ve seen so much growth in my little one since joining this daycare.”</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                               
+                                <h3>Wilson Ndlovu</h3>
+                                <h4>Parent</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Ever since my son joined the day care he only communicates in English 😊</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                               
+                                <h3>Lizzy Masemola</h3>
+                                <h4>Parent</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Very happy with my child's progress</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                       
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                                <h3>Sanele Nkosi</h3>
+                                <h4>Parent</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>It has been 2 year and I am still happy</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+
+        </section><!-- /Testimonials Section -->
+      @*   <!-- Team Section -->
+        <section id="team" class="team section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Team</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member">
+                            <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Walter White</h4>
+                                    <span>Chief Executive Officer</span>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member">
+                            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Sarah Jhonson</h4>
+                                    <span>Product Manager</span>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member">
+                            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>William Anderson</h4>
+                                    <span>CTO</span>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="member">
+                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Amanda Jepson</h4>
+                                    <span>Accountant</span>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Team Section --> *@
+        <!-- Gallery Section -->
+       @*  <section id="gallery" class="gallery section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Gallery</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row g-0">
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="assets/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
+                                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div><!-- End Gallery Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Gallery Section --> *@
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p>Get in touch</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+                   
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1484.652551877871!2d28.11155399861889!3d-25.4526615614847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sza!4v1759173031038!5m2!1sen!2sza" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div><!-- End Google Maps -->
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4">
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-geo-alt flex-shrink-0"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>TBW</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bi bi-telephone flex-shrink-0"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>081 458 0807</p>
+                                <p>068 257 3294</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                            <i class="bi bi-envelope flex-shrink-0"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>koketsokoki@gmail.com</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                    </div>
+
+                    <div class="col-lg-8">
+                       @*  <form action="https://formspree.io/f/xpwyrnak" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                    <button type="submit">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form> *@
+
+                        <style>
+                            /* Form Container */
+                            form {
+                                max-width: 600px;
+                                margin: 0 auto;
+                                padding: 20px;
+                                background: #f9f9f9;
+                                border-radius: 12px;
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                                font-family: Arial, sans-serif;
+                            }
+
+                                /* Form Labels */
+                                form label {
+                                    display: block;
+                                    margin-bottom: 10px;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+
+                                /* Form Inputs and Textarea */
+                                form input[type="email"],
+                                form input[type="text"],
+                                form textarea {
+                                    width: 100%;
+                                    padding: 12px 15px;
+                                    margin-top: 5px;
+                                    margin-bottom: 20px;
+                                    border: 1px solid #ccc;
+                                    border-radius: 8px;
+                                    font-size: 16px;
+                                    transition: border 0.3s, box-shadow 0.3s;
+                                }
+
+                                    form input:focus,
+                                    form textarea:focus {
+                                        border-color: #ff7f50; /* burnt orange accent */
+                                        box-shadow: 0 0 5px rgba(255,127,80,0.5);
+                                        outline: none;
+                                    }
+
+                                /* Submit Button */
+                                form button {
+                                    display: inline-block;
+                                    padding: 12px 30px;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    background: #ff7f50; /* burnt orange */
+                                    border: none;
+                                    border-radius: 8px;
+                                    cursor: pointer;
+                                    transition: background 0.3s, transform 0.2s;
+                                }
+
+                                    form button:hover {
+                                        background: #ff6347; /* slightly darker orange */
+                                        transform: translateY(-2px);
+                                    }
+
+                            /* Success and Error Messages */
+                            .sent-message,
+                            .error-message {
+                                display: none;
+                                padding: 12px;
+                                margin-top: 10px;
+                                border-radius: 8px;
+                                font-weight: bold;
+                            }
+
+                            .sent-message {
+                                background-color: #d4edda;
+                                color: #155724;
+                            }
+
+                            .error-message {
+                                background-color: #f8d7da;
+                                color: #721c24;
+                            }
+
+                            .loading {
+                                display: none;
+                                font-style: italic;
+                                color: #555;
+                                margin-bottom: 10px;
+                            }
+                        </style>
+
+                        <form action="https://formspree.io/f/xpwyrnak"
+                              method="POST">
+                            <label>
+                                Your Email:
+                                <input type="email" name="email" placeholder="Enter your email" required>
+                            </label>
+                            <label>
+                                Your Message:
+                                <textarea name="message" placeholder="Type your message here..." rows="6" required></textarea>
+                            </label>
+
+                            <div class="loading">Sending...</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                            <button type="submit">Send</button>
+                        </form>
+
+                        <script>
+                            const form = document.querySelector('form');
+                            form.addEventListener('submit', async (e) => {
+                              e.preventDefault();
+                              const loading = form.querySelector('.loading');
+                              const errorMessage = form.querySelector('.error-message');
+                              const sentMessage = form.querySelector('.sent-message');
+
+                              loading.style.display = 'block';
+                              errorMessage.style.display = 'none';
+                              sentMessage.style.display = 'none';
+
+                              const formData = new FormData(form);
+
+                              try {
+                                const response = await fetch(form.action, {
+                                  method: form.method,
+                                  body: formData,
+                                  headers: {
+                                    'Accept': 'application/json'
+                                  }
+                                });
+
+                                loading.style.display = 'none';
+
+                                if (response.ok) {
+                                  sentMessage.style.display = 'block';
+                                  form.reset();
+                                } else {
+                                  const data = await response.json();
+                                  errorMessage.innerText = data?.errors?.map(err => err.message).join(', ') || 'Oops! There was a problem.';
+                                  errorMessage.style.display = 'block';
+                                }
+                              } catch (error) {
+                                loading.style.display = 'none';
+                                errorMessage.innerText = 'Oops! There was a problem.';
+                                errorMessage.style.display = 'block';
+                              }
+                            });
+                        </script>
+
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
+
+    </main>
+
+    <footer id="footer" class="footer">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">Rethakgetse Day Care</span>
+                    </a>
+                    <p>A safe, nurturing, and fun environment where children can learn, play, and grow.</p>
+                    <div class="social-links d-flex mt-4">
+                        <a href="https://www.tiktok.com/@@rethagetsedaycare_0?_t=ZS-8zYPrxzvTfz&_r=1" target="_blank">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1GpvS1twku/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                       
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Subjects</a></li>
+                        <li><a href="#portfolio">Events</a></li>
+                       
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                       @*  <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li> *@
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>Contact Us</h4>
+                    <p>TBW</p>
+                    <p>Pretoria</p>
+                    <p>Principal:Martha Thembi Malakapatlo</p>
+                    <p>Manager: Koketso Malakapatlo</p>
+                    <p class="mt-4"><strong>Phone:</strong> <span>081 458 0807</span></p>
+                    <p class="mt-4"><strong>Phone:</strong> <span>068 257 3294</span></p>
+                    <p><strong>Email:</strong> <span>koketsokoki@gmail.com</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Rethakgetse Day Care</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">Karabo Lebona Graphics</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+   @*  new js new js new js new js new js *@
+    <script src="~/js/swiper-bundle.min.js"></script>
+   
+
+    <script src="~/js/aos.js"></script>
+   
+
+    <script src="~/js/glightbox.min.js"></script>
+
+    <script src="~/js/purecounter_vanilla.js"></script>
+   
+    <script src="~/js/isotope.pkgd.min.js"></script>
+
+    <script src="~/js/imagesloaded.pkgd.min.js"></script>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/validate.js"></script>
+
+
+    <!-- Main JS File -->
+   
+    <script src="~/js/site.js"></script>
+    <script src="~/js/main.js"></script>
+
+
+</body>
+              
+@* <div class="action-buttons">
+               
+                 <a class="btn btn-success" asp-controller="Parent" asp-action="Apply">Apply for Your Child</a>
+                 <a class="btn btn-primary" asp-controller="Admin" asp-action="Login">Admin Login</a>
+                 <a class="btn btn-primary" asp-controller="Home" asp-action="Facilities">View Facilities</a>
+               
+              </div>  *@
